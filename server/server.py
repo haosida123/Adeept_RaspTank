@@ -266,8 +266,8 @@ def FPV_thread():
     fpv.capture_thread(addr[0])
 
 
-def  ap_thread():
-    os.system("sudo create_ap wlan0 eth0 AdeeptCar 12345678")
+# def  ap_thread():
+#     os.system("sudo create_ap wlan0 eth0 AdeeptCar 12345678")
 
 
 def run():
@@ -434,9 +434,9 @@ if __name__ == '__main__':
             s.close()
             print(ipaddr_check)
         except:
-            ap_threading=threading.Thread(target=ap_thread)   #Define a thread for data receiving
-            ap_threading.setDaemon(True)                          #'True' means it is a front thread,it would close when the mainloop() closes
-            ap_threading.start()                                  #Thread starts
+            # ap_threading=threading.Thread(target=ap_thread)   #Define a thread for data receiving
+            # ap_threading.setDaemon(True)                          #'True' means it is a front thread,it would close when the mainloop() closes
+            # ap_threading.start()                                  #Thread starts
 
             LED.colorWipe(0,16,50)
             time.sleep(1)

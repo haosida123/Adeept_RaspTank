@@ -103,19 +103,19 @@ for x in range(1,4):
 	if os.system("sudo pip3 install imutils zmq pybase64 psutil") == 0:   ####
 		break
 
-for x in range(1,4):
-	if os.system("sudo git clone https://github.com/oblique/create_ap") == 0:
-		break
+# for x in range(1,4):
+# 	if os.system("sudo git clone https://github.com/oblique/create_ap") == 0:
+# 		break
 
-try:
-	os.system("cd " + thisPath + "/create_ap && sudo make install")
-except:
-	pass
+# try:
+# 	os.system("cd " + thisPath + "/create_ap && sudo make install")
+# except:
+# 	pass
 
-try:
-	os.system("cd //home/pi/create_ap && sudo make install")
-except:
-	pass
+# try:
+# 	os.system("cd //home/pi/create_ap && sudo make install")
+# except:
+# 	pass
 
 for x in range(1,4):
 	if os.system("sudo apt-get install -y util-linux procps hostapd iproute2 iw haveged dnsmasq") == 0:

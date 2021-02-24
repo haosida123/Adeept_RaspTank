@@ -104,8 +104,8 @@ def FPV_thread():
     fpv.capture_thread(addr[0])
 
 
-def ap_thread():
-    os.system("sudo create_ap wlan0 eth0 Adeept 12345678")
+# def ap_thread():
+#     os.system("sudo create_ap wlan0 eth0 Adeept 12345678")
 
 
 def functionSelect(command_input, response):
@@ -373,9 +373,9 @@ def wifi_check():
             screen.screen_show(2, 'IP:'+ipaddr_check)
             screen.screen_show(3, 'AP MODE OFF')
     except:
-        ap_threading=threading.Thread(target=ap_thread)   #Define a thread for data receiving
-        ap_threading.setDaemon(True)                          #'True' means it is a front thread,it would close when the mainloop() closes
-        ap_threading.start()                                  #Thread starts
+        # ap_threading=threading.Thread(target=ap_thread)   #Define a thread for data receiving
+        # ap_threading.setDaemon(True)                          #'True' means it is a front thread,it would close when the mainloop() closes
+        # ap_threading.start()                                  #Thread starts
         if OLED_connection:
             screen.screen_show(2, 'AP Starting 10%')
         RL.setColor(0,16,50)

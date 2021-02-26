@@ -19,8 +19,10 @@ Motor_A_Pin2  = 15
 Motor_B_Pin1  = 27
 Motor_B_Pin2  = 18
 
-Dir_forward   = 0
-Dir_backward  = 1
+Dir_forward   = 1
+Dir_backward  = 0
+# Dir_forward   = 0
+# Dir_backward  = 1
 
 left_forward  = 0
 left_backward = 1
@@ -140,10 +142,28 @@ def destroy():
 
 if __name__ == '__main__':
 	try:
-		speed_set = 60
+		speed_set = 30
+		# speed_set = 60
+		movetime = 1.5
 		setup()
 		move(speed_set, 'forward', 'no', 0.8)
-		time.sleep(1.3)
+		time.sleep(movetime)
+		# move(speed_set, 'forward', 'left', 0.8)
+		# time.sleep(movetime)
+		# move(speed_set, 'forward', 'right', 0.8)
+		# time.sleep(movetime)
+		move(speed_set, 'backward', 'no', 0.8)
+		time.sleep(movetime)
+		# move(speed_set, 'backward', 'left', 0.8)
+		# time.sleep(movetime)
+		# move(speed_set, 'backward', 'right', 0.8)
+		# time.sleep(movetime)
+
+		GPIO.output(Motor_B_Pin1, GPIO.LOW)
+		GPIO.output(Motor_B_Pin2, GPIO.HIGH)
+		pwm_B.start(0)
+		pwm_B.ChangeDutyCycle(speed)
+
 		motorStop()
 		destroy()
 	except KeyboardInterrupt:

@@ -25,16 +25,16 @@ import websockets
 import json
 import app
 
-OLED_connection = 1
-try:
-    import OLED
-    screen = OLED.OLED_ctrl()
-    screen.start()
-    screen.screen_show(1, 'ADEEPT.COM')
-except:
-    OLED_connection = 0
-    print('OLED disconnected')
-    pass
+# OLED_connection = 1
+# try:
+#     import OLED
+#     screen = OLED.OLED_ctrl()
+#     screen.start()
+#     screen.screen_show(1, 'ADEEPT.COM')
+# except:
+#     OLED_connection = 0
+#     print('OLED disconnected')
+#     pass
 
 functionMode = 0
 speed_set = 100
@@ -42,7 +42,7 @@ rad = 0.5
 turnWiggle = 60
 
 scGear = RPIservo.ServoCtrl()
-scGear.moveInit()
+# scGear.moveInit()
 
 P_sc = RPIservo.ServoCtrl()
 P_sc.start()
@@ -537,7 +537,8 @@ if __name__ == '__main__':
         print('Use "sudo pip3 install rpi_ws281x" to install WS_281x package\n使用"sudo pip3 install rpi_ws281x"命令来安装rpi_ws281x')
         pass
 
-    while  1:
+    for i in range(20):
+    # while  1:
         wifi_check()
         try:                  #Start server,waiting for client
             start_server = websockets.serve(main_logic, '0.0.0.0', 8888)

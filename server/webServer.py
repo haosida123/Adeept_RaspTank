@@ -42,7 +42,7 @@ rad = 0.5
 turnWiggle = 60
 
 scGear = RPIservo.ServoCtrl()
-# scGear.moveInit()
+scGear.moveInit()
 
 P_sc = RPIservo.ServoCtrl()
 P_sc.start()
@@ -376,32 +376,17 @@ def wifi_check():
         # ap_threading=threading.Thread(target=ap_thread)   #Define a thread for data receiving
         # ap_threading.setDaemon(True)                          #'True' means it is a front thread,it would close when the mainloop() closes
         # ap_threading.start()                                  #Thread starts
-        if OLED_connection:
-            screen.screen_show(2, 'AP Starting 10%')
         RL.setColor(0,16,50)
         time.sleep(1)
-        if OLED_connection:
-            screen.screen_show(2, 'AP Starting 30%')
         RL.setColor(0,16,100)
         time.sleep(1)
-        if OLED_connection:
-            screen.screen_show(2, 'AP Starting 50%')
         RL.setColor(0,16,150)
         time.sleep(1)
-        if OLED_connection:
-            screen.screen_show(2, 'AP Starting 70%')
         RL.setColor(0,16,200)
         time.sleep(1)
-        if OLED_connection:
-            screen.screen_show(2, 'AP Starting 90%')
         RL.setColor(0,16,255)
         time.sleep(1)
-        if OLED_connection:
-            screen.screen_show(2, 'AP Starting 100%')
         RL.setColor(35,255,35)
-        if OLED_connection:
-            screen.screen_show(2, 'IP:192.168.12.1')
-            screen.screen_show(3, 'AP MODE ON')
 
 async def check_permit(websocket):
     while True:

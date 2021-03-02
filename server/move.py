@@ -11,18 +11,25 @@ import RPi.GPIO as GPIO
 # motor_EN_A: Pin7  |  motor_EN_B: Pin11
 # motor_A:  Pin8,Pin10    |  motor_B: Pin13,Pin12
 
-Motor_A_EN    = 4
-Motor_B_EN    = 17
+# Motor_A_EN    = 4
+# Motor_B_EN    = 17
 
-Motor_A_Pin1  = 14
-Motor_A_Pin2  = 15
-Motor_B_Pin1  = 27
-Motor_B_Pin2  = 18
+# Motor_A_Pin1  = 14
+# Motor_A_Pin2  = 15
+# Motor_B_Pin1  = 27
+# Motor_B_Pin2  = 18
+Motor_B_EN    = 4
+Motor_A_EN    = 17
 
-Dir_forward   = 1
-Dir_backward  = 0
-# Dir_forward   = 0
-# Dir_backward  = 1
+Motor_B_Pin1  = 14
+Motor_B_Pin2  = 15
+Motor_A_Pin1  = 27
+Motor_A_Pin2  = 18
+
+# Dir_forward   = 1
+# Dir_backward  = 0
+Dir_forward   = 0
+Dir_backward  = 1
 
 left_forward  = 0
 left_backward = 1
@@ -75,7 +82,7 @@ def motor_left(status, direction, speed):#Motor 2 positive and negative rotation
 		elif direction == Dir_forward:
 			GPIO.output(Motor_B_Pin1, GPIO.LOW)
 			GPIO.output(Motor_B_Pin2, GPIO.HIGH)
-			pwm_B.start(0)
+			pwm_B.start(100)
 			pwm_B.ChangeDutyCycle(speed)
 
 
@@ -93,7 +100,7 @@ def motor_right(status, direction, speed):#Motor 1 positive and negative rotatio
 		elif direction == Dir_backward:
 			GPIO.output(Motor_A_Pin1, GPIO.LOW)
 			GPIO.output(Motor_A_Pin2, GPIO.HIGH)
-			pwm_A.start(0)
+			pwm_A.start(100)
 			pwm_A.ChangeDutyCycle(speed)
 	return direction
 
@@ -142,27 +149,35 @@ def destroy():
 
 if __name__ == '__main__':
 	try:
-		speed_set = 30
+		speed_set = 40
 		# speed_set = 60
 		movetime = 1.5
 		setup()
-		move(speed_set, 'forward', 'no', 0.8)
-		time.sleep(movetime)
+		# move(speed_set, 'forward', 'no', 0.8)
+		# time.sleep(movetime)
 		# move(speed_set, 'forward', 'left', 0.8)
 		# time.sleep(movetime)
 		# move(speed_set, 'forward', 'right', 0.8)
 		# time.sleep(movetime)
-		move(speed_set, 'backward', 'no', 0.8)
-		time.sleep(movetime)
+		# move(speed_set, 'backward', 'no', 0.8)
+		# time.sleep(movetime)
 		# move(speed_set, 'backward', 'left', 0.8)
 		# time.sleep(movetime)
 		# move(speed_set, 'backward', 'right', 0.8)
 		# time.sleep(movetime)
+		move(speed_set, 'no', 'left', 0.8)
+		time.sleep(movetime)
+		move(speed_set, 'no', 'right', 0.8)
+		time.sleep(movetime)
 
-		GPIO.output(Motor_B_Pin1, GPIO.LOW)
-		GPIO.output(Motor_B_Pin2, GPIO.HIGH)
-		pwm_B.start(0)
-		pwm_B.ChangeDutyCycle(speed)
+		# GPIO.output(Motor_B_Pin1, GPIO.LOW)
+		# GPIO.output(Motor_B_Pin2, GPIO.HIGH)
+		# pwm_B.start(0)
+		# pwm_B.ChangeDutyCycle(40)
+		# time.sleep(movetime)
+		# pwm_B.start(100)
+		# pwm_B.ChangeDutyCycle(40)
+		# time.sleep(movetime)
 
 		motorStop()
 		destroy()

@@ -347,20 +347,7 @@ def configPWM(command_input, response):
 
         G_sc.initConfig(4,300,1)
         replace_num('init_pwm4 = ', 300)
-'''
-def update_code():
-    # Update local to be consistent with remote
-    projectPath = thisPath[:-7]
-    with open(f'{projectPath}/config.json', 'r') as f1:
-        config = json.load(f1)
-        if not config['production']:
-            print('Update code')
-            # Force overwriting local code
-            if os.system(f'cd {projectPath} && sudo git fetch --all && sudo git reset --hard origin/master && sudo git pull') == 0:
-                print('Update successfully')
-                print('Restarting...')
-                os.system('sudo reboot')
-'''   
+
 def wifi_check():
     try:
         s =socket.socket(socket.AF_INET,socket.SOCK_DGRAM)

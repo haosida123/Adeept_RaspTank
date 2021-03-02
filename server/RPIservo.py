@@ -34,7 +34,7 @@ init_pwm10 = 300
 
 init_pwm11 = 300
 init_pwm12 = 490
-init_pwm13 = 425
+init_pwm13 = 430
 # init_pwm14 = 300
 init_pwm14 = 350
 init_pwm15 = 300
@@ -311,12 +311,12 @@ if __name__ == '__main__':
     # sc.run()
     # print(f'1:{sc.initPos}')
     sc.moveInit()
-    # sc.goalPos[12] = 350
-    # sc.moveAuto()
-    # time.sleep(1)
-    sc.goalPos[15] = 300
+    sc.goalPos[12] = 560
     sc.moveAuto()
-    # time.sleep(1)
+    time.sleep(1)
+    sc.goalPos[12] = 400
+    sc.moveAuto()
+    time.sleep(1)
     sc.stop()
     # while 1:
     #     sc.moveAngle(0,(random.random()*100-50))

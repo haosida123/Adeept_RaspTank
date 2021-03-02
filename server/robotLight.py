@@ -150,9 +150,12 @@ class RobotLight(threading.Thread):
 
 
     def set_all_switch_off(self):
-        self.switch(1,0)
-        self.switch(2,0)
-        self.switch(3,0)
+        # self.switch(1,0)
+        # self.switch(2,0)
+        # self.switch(3,0)
+        self.switch(1,1)
+        self.switch(2,1)
+        self.switch(3,1)
 
 
     def headLight(self, switch):
@@ -189,33 +192,26 @@ if __name__ == '__main__':
     RL=RobotLight()
     RL.start()
     time.sleep(1)
-    # print(RL.strip.numPixels())
-    # color = Color(255, 255, 255)
-    # color1 = Color(50, 50, 50)
-    # for i in range(RL.strip.numPixels()):
-    #     for j in range(3):
-    #         # RL.strip.setPixelColor(i, color)
-    #         # RL.strip.show()
-    #         # time.sleep(1)
-    #         RL.strip.setPixelColor(i, color1)
-    #         RL.strip.show()
-    #         # time.sleep(1)
     # time.sleep(1)
-    RL.setSomeColor(255,0,0,[0,1,2,3,4,5,6,7,8,9,10,11])
-    time.sleep(5)
-    RL.setSomeColor(0,0,0,[0,1,2,3,4,5,6,7,8,9,10,11])
-    RL.set_all_switch_off()
+    # RL.setSomeColor(255,0,0,[0,1,2,3,4,5,6,7,8,9,10,11])
+    # time.sleep(1)
+    # RL.setSomeColor(0,0,0,[0,1,2,3,4,5,6,7,8,9,10,11])
+    # RL.set_all_switch_off()
+    # time.sleep(5)
     # for i in range(1, 4):
     #     for j in range(4):
     #         RL.switch(i, j%2)
     #         time.sleep(1)
     #         RL.switch(i, 1 - j%2)
     #         time.sleep(1)
-    # for i in range(5):
-    #     RL.headLight('on')
-    #     time.sleep(2)
-    #     RL.headLight('off')
-    #     time.sleep(2)
+    for i in range(1, 4):
+        RL.switch(i, 0)
+    time.sleep(1)
+    RL.set_all_switch_off()
+    # for i in range(1, 4):
+    #     RL.switch(i, 1)
+    # time.sleep(1)
+    # time.sleep(5)
     # RL.breath(70,70,255)
     # time.sleep(15)
     # RL.pause()

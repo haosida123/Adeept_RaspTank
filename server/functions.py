@@ -257,6 +257,12 @@ class Functions(threading.Thread):
 
 
 if __name__ == '__main__':
+	print(ultra.checkdist())
+	setup()
+	status_right = GPIO.input(line_pin_right)
+	status_middle = GPIO.input(line_pin_middle)
+	status_left = GPIO.input(line_pin_left)
+	print(status_left, status_middle, status_right)
 	pass
 	# fuc=Functions()
 	# fuc.radarScan()

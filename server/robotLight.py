@@ -22,7 +22,7 @@ class RobotLight(threading.Thread):
         self.colorBreathR = 0
         self.colorBreathG = 0
         self.colorBreathB = 0
-        self.breathSteps = 10
+        self.breathSteps = 30
 
         self.lightMode = 'none'		#'none' 'police' 'breath'
 
@@ -102,16 +102,20 @@ class RobotLight(threading.Thread):
 
     def breathProcessing(self):
         while self.lightMode == 'breath':
-            for i in range(0,self.breathSteps):
+            # for i in range(0,self.breathSteps):
+            for i in range(1,self.breathSteps + 1):
                 if self.lightMode != 'breath':
                     break
                 self.setColor(self.colorBreathR*i/self.breathSteps, self.colorBreathG*i/self.breathSteps, self.colorBreathB*i/self.breathSteps)
                 time.sleep(0.03)
+            time.sleep(0.5)
+            # for i in range(0,self.breathSteps + 1):
             for i in range(0,self.breathSteps):
                 if self.lightMode != 'breath':
                     break
                 self.setColor(self.colorBreathR-(self.colorBreathR*i/self.breathSteps), self.colorBreathG-(self.colorBreathG*i/self.breathSteps), self.colorBreathB-(self.colorBreathB*i/self.breathSteps))
                 time.sleep(0.03)
+            time.sleep(0.5)
 
 
     def frontLight(self, switch):
@@ -183,7 +187,7 @@ class RobotLight(threading.Thread):
     def stop(self):
         # while self.executing:
         #     time.sleep(1)
-        print('stopped')
+        #print('stopped')
         self.stop_flag = True
         self.resume()
 
@@ -210,9 +214,9 @@ if __name__ == '__main__':
     #     RL.switch(i, 1)
     # time.sleep(1)
     # time.sleep(5)
-    # RL.breath(70,70,255)
-    # time.sleep(15)
-    # RL.pause()
+    RL.breath(255,85,0)
+    time.sleep(30)
+    RL.pause()
     # RL.frontLight('off')
     # time.sleep(2)
     # RL.police()

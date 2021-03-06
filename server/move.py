@@ -149,8 +149,9 @@ def destroy():
 
 if __name__ == '__main__':
 	try:
-		speed_set = 40
+		# speed_set = 40
 		# speed_set = 60
+		speed_set = 100
 		movetime = 1.5
 		setup()
 		# move(speed_set, 'forward', 'no', 0.8)

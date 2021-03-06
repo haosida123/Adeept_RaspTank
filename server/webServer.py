@@ -111,8 +111,8 @@ def FPV_thread():
 def functionSelect(command_input, response):
     global functionMode
     if 'scan' == command_input:
-        if OLED_connection:
-            screen.screen_show(5,'SCANNING')
+        # if OLED_connection:
+            # screen.screen_show(5,'SCANNING')
         if modeSelect == 'PT':
             radar_send = fuc.radarScan()
             print(radar_send)
@@ -121,14 +121,14 @@ def functionSelect(command_input, response):
             time.sleep(0.3)
 
     elif 'findColor' == command_input:
-        if OLED_connection:
-            screen.screen_show(5,'FindColor')
+        # if OLED_connection:
+            # screen.screen_show(5,'FindColor')
         if modeSelect == 'PT':
             flask_app.modeselect('findColor')
 
     elif 'motionGet' == command_input:
-        if OLED_connection:
-            screen.screen_show(5,'MotionGet')
+        # if OLED_connection:
+            # screen.screen_show(5,'MotionGet')
         flask_app.modeselect('watchDog')
 
     elif 'stopCV' == command_input:
@@ -138,8 +138,8 @@ def functionSelect(command_input, response):
         switch.switch(3,0)
 
     elif 'police' == command_input:
-        if OLED_connection:
-            screen.screen_show(5,'POLICE')
+        # if OLED_connection:
+            # screen.screen_show(5,'POLICE')
         RL.police()
 
     elif 'policeOff' == command_input:
@@ -147,8 +147,8 @@ def functionSelect(command_input, response):
         move.motorStop()
 
     elif 'automatic' == command_input:
-        if OLED_connection:
-            screen.screen_show(5,'Automatic')
+        # if OLED_connection:
+            # screen.screen_show(5,'Automatic')
         if modeSelect == 'PT':
             fuc.automatic()
         else:
@@ -160,16 +160,16 @@ def functionSelect(command_input, response):
 
     elif 'trackLine' == command_input:
         fuc.trackLine()
-        if OLED_connection:
-            screen.screen_show(5,'TrackLine')
+        # if OLED_connection:
+            # screen.screen_show(5,'TrackLine')
 
     elif 'trackLineOff' == command_input:
         fuc.pause()
         move.motorStop()
 
     elif 'steadyCamera' == command_input:
-        if OLED_connection:
-            screen.screen_show(5,'SteadyCamera')
+        # if OLED_connection:
+            # screen.screen_show(5,'SteadyCamera')
         fuc.steady(T_sc.lastPos[2])
 
     elif 'steadyCameraOff' == command_input:
@@ -356,9 +356,9 @@ def wifi_check():
         s.close()
         print(ipaddr_check)
     #    update_code()
-        if OLED_connection:
-            screen.screen_show(2, 'IP:'+ipaddr_check)
-            screen.screen_show(3, 'AP MODE OFF')
+        # if OLED_connection:
+            # screen.screen_show(2, 'IP:'+ipaddr_check)
+            # screen.screen_show(3, 'AP MODE OFF')
     except:
         # ap_threading=threading.Thread(target=ap_thread)   #Define a thread for data receiving
         # ap_threading.setDaemon(True)                          #'True' means it is a front thread,it would close when the mainloop() closes
@@ -474,11 +474,11 @@ async def recv_msg(websocket):
                 color = data['data']
                 flask_app.colorFindSet(color[0],color[1],color[2])
 
-        if not functionMode:
-            if OLED_connection:
-                screen.screen_show(5,'Functions OFF')
-        else:
-            pass
+        # if not functionMode:
+            # if OLED_connection:
+                # screen.screen_show(5,'Functions OFF')
+        # else:
+            # pass
 
         print(data)
         response = json.dumps(response)
